@@ -14,7 +14,7 @@ Imagit provides a range of IT infrastructure and technology deployment services:
 - Nationwide Install & Break-Fix Support: Field technician dispatch for routers, switches, firewalls, wireless access points, cameras, and access control.
 - Structured Cabling and Wi-Fi Deployments: Installation, certification, and testing of data and voice cabling, often as part of full site buildouts.
 - Managed Network Services: Device monitoring, support escalation, and ongoing maintenance contracts.
-- Device-as-a-Service (SciFi Program): Bundled hardware, software licensing, and lifecycle management with predictable monthly pricing.
+- Device-as-a-Service (SiAFi Program): Bundled hardware, software licensing, and lifecycle management with predictable monthly pricing.
 - Site Surveys and Pre-Installation Assessments: Data collection, drawings, and environmental validation prior to installs.
 - Global Coordination: Partnered implementations for multinational organizations needing standardized deployments.
 
@@ -128,7 +128,7 @@ Imagit's roadmap includes:
 - Full automation of the field‑service workflow through a proprietary app that integrates Autotask, billing, and subcontractor management.
 - AI‑based dispatch optimization and resource allocation.
 - Profitability dashboards for job and client analytics.
-- Expansion of SciFi Device‑as‑a‑Service offering to include licensing and EOL refresh management.
+- Expansion of SiAFi Device‑as‑a‑Service offering to include licensing and EOL refresh management.
 - Client portal access for work order tracking and SLA visibility.
 
 ---
