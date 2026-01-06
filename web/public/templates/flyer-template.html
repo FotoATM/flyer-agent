@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Imagit Flyer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      /* Official Imagit Brand Colors */
+      --imagit-navy: #090E20;      /* Primary dark background */
+      --imagit-ink: #004EA8;        /* Blue accent */
+      --imagit-teal: #00A4C4;       /* Main teal accent */
+      --imagit-light-teal: #77E5E0; /* Light teal (print) */
+      --imagit-bright-teal: #01FFD7;/* Bright teal (digital only) */
+
+      /* Semantic aliases */
+      --dark-navy: #090E20;
+      --darker-navy: #060a15;
+      --mid-blue: #004EA8;
+      --cyan: #00A4C4;
+      --cyan-light: #77E5E0;
+      --cyan-bright: #01FFD7;
+      --white: #ffffff;
+      --gray-light: #b8c5d3;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--dark-navy);
+      color: var(--white);
+      line-height: 1.5;
+    }
+
+    .page {
+      width: 8.5in;
+      height: 11in;
+      background: var(--dark-navy);
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+      page-break-inside: avoid;
+    }
+
+    /* Node network decorative element */
+    .node-network {
+      position: absolute;
+      pointer-events: none;
+      opacity: 0.4;
+    }
+
+    .node-network svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .node-network-1 {
+      top: 100px;
+      right: -50px;
+      width: 400px;
+      height: 500px;
+    }
+
+    .node-network-2 {
+      bottom: 150px;
+      right: 50px;
+      width: 300px;
+      height: 300px;
+    }
+
+    /* ==================== PAGE 1 ==================== */
+
+    /* Header using asset image */
+    .header-asset {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .hero {
+      padding: 35px 40px 20px;
+      position: relative;
+      display: flex;
+      gap: 30px;
+    }
+
+    .hero-content {
+      flex: 1;
+      max-width: 55%;
+    }
+
+    .hero-headline {
+      font-size: 48px;
+      font-weight: 800;
+      color: var(--imagit-teal);
+      line-height: 1.1;
+      margin-bottom: 25px;
+    }
+
+    .hero-subhead {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 18px;
+    }
+
+    .hero-body {
+      font-size: 13px;
+      color: var(--gray-light);
+      line-height: 1.7;
+      margin-bottom: 15px;
+    }
+
+    .hero-image-container {
+      flex: 0 0 42%;
+      position: relative;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 8px;
+      /* Gradient overlay via pseudo-element */
+    }
+
+    .hero-image-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 60px;
+      height: 100%;
+      background: linear-gradient(to right, var(--dark-navy) 0%, transparent 100%);
+      z-index: 1;
+      border-radius: 8px 0 0 8px;
+    }
+
+    .features {
+      padding: 15px 40px 20px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .checkmark {
+      width: 24px;
+      height: 24px;
+      color: var(--imagit-teal);
+      margin-right: 15px;
+      flex-shrink: 0;
+    }
+
+    .feature-item span {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .bullets-section {
+      padding: 18px 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px 40px;
+    }
+
+    .bullet-item {
+      display: flex;
+      align-items: flex-start;
+      font-size: 12px;
+      color: var(--gray-light);
+      line-height: 1.6;
+    }
+
+    .bullet-dot {
+      width: 5px;
+      height: 5px;
+      background: var(--white);
+      border-radius: 50%;
+      margin-right: 10px;
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+
+    .cta-bar {
+      background: linear-gradient(90deg, var(--imagit-ink) 0%, var(--imagit-teal) 100%);
+      padding: 12px 40px;
+      margin: 12px 40px;
+      border-radius: 4px;
+    }
+
+    .cta-bar p {
+      color: var(--imagit-light-teal);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .footer {
+      background: var(--darker-navy);
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(0, 164, 196, 0.3);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .contact-info p {
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+
+    .contact-info .email {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .contact-info .email svg {
+      width: 18px;
+      height: 18px;
+      color: var(--imagit-teal);
+    }
+
+    .website {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    /* ==================== PAGE 2 ==================== */
+    .page-2-header {
+      padding: 35px 40px 20px;
+    }
+
+    .page-2-headline {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--imagit-teal);
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .page-2-subhead {
+      font-size: 14px;
+      color: var(--gray-light);
+    }
+
+    .services-intro {
+      padding: 8px 40px 15px;
+      border-bottom: 1px solid rgba(0, 164, 196, 0.3);
+      margin: 0 40px;
+    }
+
+    .services-intro h3 {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .services-grid {
+      padding: 20px 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px 40px;
+    }
+
+    .service-item {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .service-check {
+      width: 22px;
+      height: 22px;
+      color: var(--imagit-teal);
+      margin-right: 12px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .service-content h4 {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .service-content p {
+      font-size: 11px;
+      color: var(--gray-light);
+      line-height: 1.5;
+    }
+
+    .badge {
+      background: linear-gradient(135deg, var(--imagit-teal) 0%, var(--imagit-light-teal) 100%);
+      color: var(--imagit-navy);
+      font-size: 8px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 10px;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    .page-2-cta {
+      margin: 15px 40px;
+      padding: 0 0 15px;
+      border-bottom: 1px solid rgba(0, 164, 196, 0.3);
+    }
+
+    .page-2-cta p {
+      font-size: 12px;
+      color: var(--gray-light);
+    }
+
+    /* Footer asset image */
+    .footer-asset-container {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .footer-asset {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Print styles */
+    @media print {
+      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .page { page-break-after: always; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE 1 -->
+  <div class="page page-1">
+    <!-- Node network decoration -->
+    <div class="node-network node-network-1">
+      <svg viewBox="0 0 400 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Nodes (small circles) -->
+        <circle cx="350" cy="50" r="4" fill="#00A4C4"/>
+        <circle cx="300" cy="120" r="3" fill="#00A4C4"/>
+        <circle cx="380" cy="180" r="5" fill="#00A4C4"/>
+        <circle cx="250" cy="200" r="3" fill="#00A4C4"/>
+        <circle cx="320" cy="280" r="4" fill="#00A4C4"/>
+        <circle cx="370" cy="320" r="3" fill="#00A4C4"/>
+        <circle cx="280" cy="380" r="5" fill="#00A4C4"/>
+        <circle cx="350" cy="420" r="3" fill="#00A4C4"/>
+        <circle cx="200" cy="150" r="3" fill="#00A4C4"/>
+        <circle cx="220" cy="300" r="4" fill="#00A4C4"/>
+        <circle cx="180" cy="400" r="3" fill="#00A4C4"/>
+        <circle cx="330" cy="480" r="4" fill="#00A4C4"/>
+
+        <!-- Connecting lines -->
+        <line x1="350" y1="50" x2="300" y2="120" stroke="#00A4C4" stroke-width="1"/>
+        <line x1="300" y1="120" x2="380" y2="180" stroke="#00A4C4" stroke-width="1"/>
+        <line x1="300" y1="120" x2="250" y2="200" stroke="#00A4C4" stroke-width="1"/>
+        <line x1="380" y1="180" x2="320" y2="280" stroke="#00A4C4" stroke-width="1"/>
+        <line x1="250" y1="200" x2="320" y2="280" stroke="#00A4C4" stroke-width="1"/>
+        <line x1="320" y1="280" x2="370" y2="320" stroke="#00A4C4" stroke-width="1"/>
+        <line x1="320" y1="280" x2="280" y2="380" stroke="#00A4C4" stroke-width="1"/>
+        <line x1="370" y1="320" x2="350" y2="420" stroke="#00A4C4" stroke-width="1"/>
+        <line x1="280" y1="380" x2="350" y2="420" stroke="#00A4C4" stroke-width="1"/>
+        <line x1="200" y1="150" x2="250" y2="200" stroke="#00A4C4" stroke-width="1"/>
+        <line x1="200" y1="150" x2="220" y2="300" stroke="#00A4C4" stroke-width="1"/>
+        <line x1="220" y1="300" x2="280" y2="380" stroke="#00A4C4" stroke-width="1"/>
+        <line x1="220" y1="300" x2="180" y2="400" stroke="#00A4C4" stroke-width="1"/>
+        <line x1="180" y1="400" x2="280" y2="380" stroke="#00A4C4" stroke-width="1"/>
+        <line x1="350" y1="420" x2="330" y2="480" stroke="#00A4C4" stroke-width="1"/>
+        <line x1="280" y1="380" x2="330" y2="480" stroke="#00A4C4" stroke-width="1"/>
+      </svg>
+    </div>
+
+    <!-- Header using asset image -->
+    <img src="/assets/header.png" alt="Imagit Header" class="header-asset">
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1 class="hero-headline">Refer opportunities.<br>Earn with ease.</h1>
+        <p class="hero-subhead">Turn everyday observations into added commission, without quoting, pitching, or closing deals.</p>
+        <p class="hero-body">Engineers can earn one-time or recurring commission by referring service needs they notice on-site or through existing customers. Simply submit the opportunity—Imagit handles the rest. With nationwide coverage, every new location or service line can create added income.</p>
+      </div>
+      <div class="hero-image-container">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800" alt="Server Room" class="hero-image">
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+      <div class="feature-item">
+        <svg class="checkmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <span>Easy Referrals</span>
+      </div>
+      <div class="feature-item">
+        <svg class="checkmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <span>Additional Income</span>
+      </div>
+      <div class="feature-item">
+        <svg class="checkmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <span>Nationwide Coverage</span>
+      </div>
+    </section>
+
+    <!-- Bullet Points -->
+    <section class="bullets-section">
+      <div class="bullet-item">
+        <div class="bullet-dot"></div>
+        <p>Refer on-site opportunities for any Imagit service—no quoting or deal handling required.</p>
+      </div>
+      <div class="bullet-item">
+        <div class="bullet-dot"></div>
+        <p>Use Imagit's nationwide coverage to deliver services anywhere customers operate.</p>
+      </div>
+      <div class="bullet-item">
+        <div class="bullet-dot"></div>
+        <p>Earn one-time or recurring commission on services like Internet, SiAFi, and SLAs.</p>
+      </div>
+      <div class="bullet-item">
+        <div class="bullet-dot"></div>
+        <p>Offer white-label delivery when you want billing to stay under your own company name.</p>
+      </div>
+      <div class="bullet-item">
+        <div class="bullet-dot"></div>
+        <p>Get paid for any client location, even when you support just one site.</p>
+      </div>
+      <div class="bullet-item">
+        <div class="bullet-dot"></div>
+        <p>Submit opportunities in seconds—Imagit handles the rest.</p>
+      </div>
+    </section>
+
+    <!-- CTA Bar -->
+    <div class="cta-bar">
+      <p>Turn field insight into added income with Imagit's nationwide coverage.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="contact-info">
+        <p>Send an email to Jess Cook at Imagit for more information</p>
+        <div class="email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+            <path d="M22 6L12 13L2 6"></path>
+          </svg>
+          <span>JCook@imagit.com</span>
+        </div>
+      </div>
+      <div class="website">www.imagit.com</div>
+    </footer>
+  </div>
+
+  <!-- PAGE 2 -->
+  <div class="page page-2">
+    <!-- Node network decoration -->
+    <div class="node-network node-network-1">
+      <svg viewBox="0 0 400 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Nodes -->
+        <circle cx="350" cy="80" r="4" fill="#00A4C4"/>
+        <circle cx="280" cy="150" r="3" fill="#00A4C4"/>
+        <circle cx="380" cy="220" r="5" fill="#00A4C4"/>
+        <circle cx="320" cy="300" r="3" fill="#00A4C4"/>
+        <circle cx="250" cy="250" r="4" fill="#00A4C4"/>
+        <circle cx="360" cy="380" r="3" fill="#00A4C4"/>
+        <circle cx="300" cy="450" r="4" fill="#00A4C4"/>
+
+        <!-- Lines -->
+        <line x1="350" y1="80" x2="280" y2="150" stroke="#00A4C4" stroke-width="1"/>
+        <line x1="350" y1="80" x2="380" y2="220" stroke="#00A4C4" stroke-width="1"/>
+        <line x1="280" y1="150" x2="250" y2="250" stroke="#00A4C4" stroke-width="1"/>
+        <line x1="380" y1="220" x2="320" y2="300" stroke="#00A4C4" stroke-width="1"/>
+        <line x1="250" y1="250" x2="320" y2="300" stroke="#00A4C4" stroke-width="1"/>
+        <line x1="320" y1="300" x2="360" y2="380" stroke="#00A4C4" stroke-width="1"/>
+        <line x1="360" y1="380" x2="300" y2="450" stroke="#00A4C4" stroke-width="1"/>
+        <line x1="320" y1="300" x2="300" y2="450" stroke="#00A4C4" stroke-width="1"/>
+      </svg>
+    </div>
+
+    <!-- Header -->
+    <section class="page-2-header">
+      <h1 class="page-2-headline">Earn commission by referring any Imagit service<br>—across every customer location.</h1>
+      <p class="page-2-subhead">Turn field insight into opportunities Imagit delivers.</p>
+    </section>
+
+    <!-- Services Intro -->
+    <div class="services-intro">
+      <h3>What You Can Refer:</h3>
+    </div>
+
+    <!-- Services Grid -->
+    <section class="services-grid">
+      <div class="service-item">
+        <svg class="service-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <div class="service-content">
+          <h4>Field Services — U.S., Canada, U.K.</h4>
+          <p>Break/fix, smart hands, Wi-Fi, and technical support across the U.S., Canada, and U.K.</p>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <svg class="service-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <div class="service-content">
+          <h4>Project Services</h4>
+          <p>Cabling, rack & stack, upgrades, and multisite deployments with project oversight.</p>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <svg class="service-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <div class="service-content">
+          <h4>SLA Agreements <span class="badge">Recurring Commission</span></h4>
+          <p>On-site response with 2-hour, 4-hour, same-day, or next-business-day options.</p>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <svg class="service-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <div class="service-content">
+          <h4>Depot Services <span class="badge">Recurring Commission</span></h4>
+          <p>Secure storage, asset intake, kitting, packing, and rapid parts dispatch.</p>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <svg class="service-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <div class="service-content">
+          <h4>SiAFi <span class="badge">Recurring Commission</span></h4>
+          <p>Packaged installation and maintenance service with recurring monthly billing.</p>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <svg class="service-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <div class="service-content">
+          <h4>Internet Services <span class="badge">Recurring Commission</span></h4>
+          <p>Business circuits with monitoring, on-site support, and recurring monthly billing.</p>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <svg class="service-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <div class="service-content">
+          <h4>Telephone & VoIP <span class="badge">Recurring Commission</span></h4>
+          <p>Business phone systems, SIP services, and hosted voice solutions.</p>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <svg class="service-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <div class="service-content">
+          <h4>Hardware Procurement</h4>
+          <p>Firewalls, switches, access points, cameras, servers, and other IT equipment.</p>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <svg class="service-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <div class="service-content">
+          <h4>Staff Augmentation <span class="badge">Recurring Commission</span></h4>
+          <p>Short- or long-term technical resources from single engineers to full teams.</p>
+        </div>
+      </div>
+
+      <div class="service-item">
+        <svg class="service-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <div class="service-content">
+          <h4>Equipment Recovery & RMA</h4>
+          <p>Pickup, packaging, return logistics, and cable abatement for relocations or closures.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="page-2-cta">
+      <p>No cost. No selling. Simple referrals with zero extra effort.</p>
+    </div>
+
+    <!-- Footer using asset image -->
+    <div class="footer-asset-container">
+      <img src="/assets/footer.png" alt="Imagit Footer" class="footer-asset">
+    </div>
+  </div>
+
+</body>
+</html>

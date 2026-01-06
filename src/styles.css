@@ -1,0 +1,509 @@
+/* Exact match to reference SVG design - Imagit Penetration Testing Flyer */
+
+@page {
+  size: letter;
+  margin: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 10pt;
+  line-height: 1.3;
+  color: #000000;
+  background: #ffffff;
+  width: 8.5in;
+  height: 11in;
+  position: relative;
+  overflow: hidden;
+}
+
+.page {
+  width: 8.5in;
+  height: 11in;
+  position: relative;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+/* Content wrapper with safe margins */
+.page-content {
+  position: relative;
+  z-index: 1;
+  padding: 0.25in;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============================================
+   HEADER REGION - Hero area with diagonal bands
+   ============================================ */
+
+.header-region {
+  position: relative;
+  height: 2.75in;
+  margin-bottom: 0.2in;
+  overflow: hidden;
+}
+
+/* Strong diagonal brand bands - using exact colors from SVG */
+.diagonal-band-top {
+  position: absolute;
+  top: -150px;
+  right: -300px;
+  width: 800px;
+  height: 200px;
+  background: linear-gradient(135deg, #090e20 0%, #004ea8 50%, #078dde 100%);
+  transform: rotate(-15deg);
+  z-index: 1;
+}
+
+.diagonal-band-middle {
+  position: absolute;
+  top: 100px;
+  left: -200px;
+  width: 600px;
+  height: 180px;
+  background: linear-gradient(45deg, #090e20 0%, #1765a8 50%, #3fb8ff 100%);
+  transform: rotate(12deg);
+  z-index: 1;
+}
+
+.diagonal-band-bottom {
+  position: absolute;
+  bottom: -100px;
+  right: -250px;
+  width: 700px;
+  height: 160px;
+  background: linear-gradient(-45deg, #004ea8 0%, #078dde 50%, #3fb8ff 100%);
+  transform: rotate(8deg);
+  z-index: 1;
+}
+
+.header-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 0.15in;
+}
+
+.logo-block {
+  flex: 0 0 auto;
+}
+
+.logo {
+  height: 0.5in;
+  width: auto;
+  max-width: 2.5in;
+  object-fit: contain;
+  display: block;
+}
+
+.ribbon-badge {
+  background: linear-gradient(135deg, #090e20 0%, #004ea8 100%);
+  color: #ffffff;
+  padding: 0.1in 0.18in;
+  font-size: 8pt;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  line-height: 1.3;
+  transform: rotate(1.5deg);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  max-width: 3in;
+  text-align: center;
+}
+
+/* ============================================
+   TYPOGRAPHY SYSTEM - Matching reference SVG
+   ============================================ */
+
+.main-headline {
+  font-size: 54pt;
+  font-weight: 400;
+  line-height: 1.1;
+  color: #000000;
+  margin-bottom: 0.15in;
+  letter-spacing: -1px;
+  text-transform: none;
+}
+
+.subheadline-white {
+  font-size: 17pt;
+  font-weight: 400;
+  color: #ffffff;
+  margin-bottom: 0.12in;
+  line-height: 1.3;
+  letter-spacing: 0;
+}
+
+.body-copy-white {
+  font-size: 14.5pt;
+  line-height: 1.4;
+  color: #ffffff;
+  margin-bottom: 0.1in;
+}
+
+.body-copy-white p {
+  margin-bottom: 0.08in;
+}
+
+.body-copy-black {
+  font-size: 17pt;
+  line-height: 1.3;
+  color: #000000;
+  margin-bottom: 0.15in;
+  font-weight: 400;
+}
+
+/* White text content area on colored background - using exact SVG colors */
+.white-content-area {
+  background: linear-gradient(135deg, #090e20 0%, #004ea8 50%, #078dde 100%);
+  padding: 0.25in;
+  margin: 0.2in 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* ============================================
+   TWO COLUMN GRID SYSTEM
+   ============================================ */
+
+.two-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.3in;
+  margin: 0.2in 0;
+  align-items: start;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.column-white {
+  color: #ffffff;
+}
+
+.column-white h3 {
+  font-size: 14.5pt;
+  font-weight: 400;
+  color: #ffffff;
+  margin-bottom: 0.1in;
+  text-transform: none;
+  letter-spacing: 0;
+  line-height: 1.3;
+}
+
+.column-white ul {
+  list-style: none;
+}
+
+.column-white li {
+  font-size: 14.5pt;
+  line-height: 1.4;
+  color: #ffffff;
+  padding-left: 0.15in;
+  position: relative;
+  margin-bottom: 0.06in;
+  font-weight: 400;
+}
+
+.column-white li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #ffffff;
+  font-weight: normal;
+}
+
+.column-black h3 {
+  font-size: 14.5pt;
+  font-weight: 400;
+  color: #000000;
+  margin-bottom: 0.1in;
+  text-transform: none;
+  letter-spacing: 0;
+  line-height: 1.3;
+}
+
+.column-black ul {
+  list-style: none;
+}
+
+.column-black li {
+  font-size: 14.5pt;
+  line-height: 1.4;
+  color: #000000;
+  padding-left: 0.15in;
+  position: relative;
+  margin-bottom: 0.06in;
+  font-weight: 400;
+}
+
+.column-black li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #000000;
+  font-weight: normal;
+}
+
+/* ============================================
+   BOTTOM ANCHOR SECTION
+   ============================================ */
+
+.bottom-anchor {
+  margin-top: auto;
+  padding-top: 0.25in;
+}
+
+.closing-statement {
+  font-size: 17pt;
+  font-weight: 400;
+  color: #000000;
+  text-align: center;
+  margin-bottom: 0.2in;
+  text-transform: none;
+  letter-spacing: 0;
+  line-height: 1.3;
+}
+
+.contact-info {
+  font-size: 16pt;
+  color: #090e20;
+  text-align: center;
+  margin-bottom: 0.1in;
+}
+
+.contact-info p {
+  margin-bottom: 0.08in;
+  line-height: 1.4;
+}
+
+.contact-info a {
+  color: #090e20;
+  text-decoration: none;
+}
+
+.three-column-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.2in;
+  margin: 0.2in 0;
+  text-align: center;
+}
+
+.feature-item {
+  font-size: 14.5pt;
+  font-weight: 400;
+  color: #000000;
+  line-height: 1.3;
+}
+
+/* ============================================
+   BACK PAGE SPECIFIC STYLES
+   ============================================ */
+
+.section-title {
+  font-size: 17pt;
+  font-weight: 400;
+  color: #000000;
+  margin-bottom: 0.15in;
+  text-transform: none;
+  letter-spacing: 0;
+  line-height: 1.3;
+}
+
+.intro-text {
+  font-size: 14.5pt;
+  line-height: 1.4;
+  color: #000000;
+  margin-bottom: 0.2in;
+  font-weight: 400;
+}
+
+/* Phase blocks */
+.phases {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.15in;
+  margin: 0.2in 0;
+}
+
+.phase-block {
+  background: linear-gradient(135deg, rgba(9, 14, 32, 0.05) 0%, rgba(0, 78, 168, 0.08) 100%);
+  border-left: 2px solid #004ea8;
+  padding: 0.15in;
+  margin-bottom: 0.12in;
+}
+
+.phase-block h4 {
+  font-size: 11pt;
+  font-weight: 400;
+  color: #000000;
+  margin-bottom: 0.1in;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+.phase-block ul {
+  list-style: none;
+}
+
+.phase-block li {
+  font-size: 9pt;
+  line-height: 1.5;
+  color: #333333;
+  padding-left: 0.12in;
+  position: relative;
+  margin-bottom: 0.06in;
+}
+
+.phase-block li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #004ea8;
+  font-weight: normal;
+}
+
+/* ============================================
+   PRICING TABLES
+   ============================================ */
+
+.pricing-section {
+  margin: 0.3in 0;
+}
+
+.pricing-section h3 {
+  font-size: 14pt;
+  font-weight: 400;
+  color: #000000;
+  margin-bottom: 0.12in;
+  margin-top: 0.2in;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  line-height: 1.2;
+}
+
+.pricing-section h3:first-child {
+  margin-top: 0;
+}
+
+.pricing-section .subtitle {
+  font-size: 9pt;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  display: block;
+  margin-top: 0.05in;
+  color: #666666;
+}
+
+.pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0.2in;
+  font-size: 9.5pt;
+}
+
+.pricing-table th {
+  background: linear-gradient(135deg, #090e20 0%, #004ea8 100%);
+  color: #ffffff;
+  padding: 0.1in 0.12in;
+  text-align: left;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 8.5pt;
+  letter-spacing: 0.5px;
+}
+
+.pricing-table td {
+  padding: 0.1in 0.12in;
+  border-bottom: 1px solid #e0e0e0;
+  color: #333333;
+}
+
+.pricing-table tr:nth-child(even) {
+  background: #f8f9fa;
+}
+
+.pricing-table .price {
+  font-weight: 400;
+  color: #000000;
+  text-align: right;
+  font-size: 10pt;
+}
+
+/* ============================================
+   CTA FOOTER
+   ============================================ */
+
+.cta-footer {
+  margin-top: auto;
+  padding-top: 0.25in;
+  border-top: 2px solid #e0e0e0;
+  text-align: center;
+}
+
+.cta-footer .tagline {
+  font-size: 17pt;
+  font-weight: 400;
+  color: #000000;
+  margin-bottom: 0.12in;
+  font-style: normal;
+}
+
+.cta-footer p {
+  font-size: 14.5pt;
+  color: #000000;
+  margin-bottom: 0.08in;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+.cta-footer .contact {
+  font-size: 14.5pt;
+  color: #000000;
+}
+
+.cta-footer a {
+  color: #000000;
+  text-decoration: none;
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .page {
+    page-break-after: always;
+    page-break-inside: avoid;
+  }
+  
+  .page:last-child {
+    page-break-after: auto;
+  }
+  
+  .two-columns,
+  .phases {
+    page-break-inside: avoid;
+  }
+}

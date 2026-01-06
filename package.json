@@ -1,0 +1,28 @@
+{
+  "name": "imagit-penetration-testing-flyer",
+  "version": "1.0.0",
+  "description": "Print-ready 2-page flyer for Imagit Penetration Testing services",
+  "main": "scripts/export_pdf.ts",
+  "scripts": {
+    "export": "tsx scripts/export_pdf.ts",
+    "export:template": "tsx scripts/export_template.ts",
+    "build": "npm run export"
+  },
+  "bin": {
+    "export-pdf": "./scripts/export_pdf.ts"
+  },
+  "keywords": [
+    "flyer",
+    "pdf",
+    "print"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "playwright": "^1.40.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.0"
+  }
+}
+

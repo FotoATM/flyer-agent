@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reference Analysis - Front</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      background: #f0f0f0;
+    }
+    .reference-container {
+      max-width: 816px;
+      margin: 0 auto;
+      background: white;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    .reference-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .current-container {
+      max-width: 816px;
+      margin: 20px auto;
+      background: white;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align: center; margin-bottom: 20px;">Reference vs Current Design</h1>
+  
+  <div class="reference-container">
+    <h2 style="padding: 10px; margin: 0; background: #333; color: white;">REFERENCE (SVG)</h2>
+    <img src="../dist/reference-page1.svg" alt="Reference Page 1" />
+  </div>
+  
+  <div class="current-container">
+    <h2 style="padding: 10px; margin: 0 0 20px 0; background: #0066cc; color: white;">CURRENT DESIGN</h2>
+    <iframe src="front.html" style="width: 100%; height: 1056px; border: 1px solid #ddd;"></iframe>
+  </div>
+</body>
+</html>
+
+
